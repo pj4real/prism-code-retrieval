@@ -1,0 +1,11 @@
+{
+  "model": "gte-modernbert-base",
+  "cache_path": ".cache/embeddings.sqlite",
+  "batch_size": 32,
+  "augment_tags": false,
+  "w_full": 0.6,
+  "w_stmt": 0.4,
+  "fusion": "zscore",
+  "bm25_weight": 0.25,
+  "topic_weight": 0.15
+}

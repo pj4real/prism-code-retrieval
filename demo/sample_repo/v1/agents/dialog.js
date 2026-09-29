@@ -1,0 +1,33 @@
+const { stripFillerWords } = require('../utils/text');
+const { routeIntent } = require('./router');
+
+// Cleans the raw speech transcript before it is routed: trims spaces, lower
+// cases and removes filler words, then forwards it to the router.
+function normalizeUtterance(raw) {
+  const trimmed = raw.trim().toLowerCase();
+  const cleaned = stripFillerWords(trimmed);
+  return routeIntent(cleaned);
+}
+
+function askClarification(missingSlot) {
+  const questions = {
+    time: 'What time should I use?',
+    level: 'How loud should it be?',
+    ssid: 'Which network do you mean?',
+  };
+  return questions[missingSlot] || 'Can you say that again?';
+}
+
+// Fills slots from the utterance using a simple {slot: regex} schema.
+function fillSlots(utterance, schema) {
+  const filled = {};
+  const missing = [];
+  for (const [slot, pattern] of Object.entries(schema)) {
+    const match = pattern.exec(utterance);
+    if (match) filled[slot] = match[1];
+    else missing.push(slot);
+  }
+  return { filled, missing };
+}
+
+module.exports = { normalizeUtterance, askClarification, fillSlots };

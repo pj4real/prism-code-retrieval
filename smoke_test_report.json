@@ -1,0 +1,61 @@
+{
+  "python": "3.13.5",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "versions": {
+    "mteb": "2.21.9",
+    "sentence_transformers": "6.1.0",
+    "transformers": "5.17.0",
+    "torch": "2.14.0"
+  },
+  "data_load_seconds": 22.3,
+  "corpus_columns": [
+    "id",
+    "partition",
+    "text",
+    "language",
+    "meta_information",
+    "title"
+  ],
+  "query_columns": [
+    "id",
+    "partition",
+    "text",
+    "language",
+    "meta_information",
+    "title"
+  ],
+  "n_docs": 8765,
+  "n_queries": 3765,
+  "doc_chars_median_max": [
+    332,
+    289048
+  ],
+  "query_chars_median_max": [
+    1601,
+    5742
+  ],
+  "sample_query_start": "An accordion is a string (yes, in the real world accordions are musical instruments, but let's forget about it for a while) which can be represented as a concatenation of: an opening bracket (ASCII code $091$), a colon (ASCII code $058$), some (possibly zero) vertical line characters (ASCII code $124$), another colon, and a closing bracket (ASCII code $093$). The length of the accordion is the number of characters in it.\n\nFor example, [::], [:||:] and [:|||:] are accordions having length $4$, $6",
+  "sample_query_views": {
+    "statement_chars": 886,
+    "full_chars": 1184
+  },
+  "sample_relevant_doc_start": "s = input()\nn = len(s)\nind = -1\nf = False\nfor i in range(n):\n    if s[i] == '[':\n        f = True\n    elif s[i] == ':':\n        if f:\n            ind = i\n            break\nbind = -1\nf = False\nfor i in range(n-1,-1,-1):\n    if s[i] == ']':\n        f = True\n    elif s[i] == ':':\n        if f:\n            bind = i\n            break\n# print(ind,bind)\nif ind == -1 or bind == -1:\n    print(-1)\nelif ind >= bind:\n    print(-1)\nelse:\n    ans = 4\n    for i in range(ind+1,bind):\n        if s[i] == '|':\n   ",
+  "model_load_seconds": 271.5,
+  "seconds_per_doc": 1.0129,
+  "seconds_per_query_view": 0.9974,
+  "estimated_full_run_minutes": 254.4,
+  "tiny_search_top3": [
+    [
+      "d134",
+      2.5909719467163086
+    ],
+    [
+      "d152",
+      2.5828819274902344
+    ],
+    [
+      "d175",
+      2.5119104385375977
+    ]
+  ]
+}

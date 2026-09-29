@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.cache/
+.pytest_cache/
+results/
+appsretrieval_results.json
+run_summary.json
+tuning_report.json
