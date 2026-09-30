@@ -20,15 +20,18 @@ def main() -> None:
         "",
         "| Metric | Value |",
         "| --- | --- |",
-        f"| NDCG@10 | {summary['ndcg_at_10']:.4f} |",
-        f"| MRR@10 | {summary['mrr_at_10']:.4f} |",
+        f"| NDCG@10 | {summary['ndcg_at_10']} |",
+        f"| MRR@10 | {summary['mrr_at_10']} |",
         f"| Documents / queries | {summary['docs']} / {summary['queries']} |",
-        f"| Total wall clock | {summary['wall_clock_seconds']:.0f} s on {summary['cpu_count']} CPU cores |",
+        f"| Recall@10 | {summary['recall_at_10']} |",
+        f"| Total wall clock | {summary['wall_clock_seconds']} s on {summary['cpu_count']} CPU cores |",
         "",
         f"Model: `{cfg['model']}`. BM25 weight {cfg['bm25_weight']}, topic weight {cfg['topic_weight']}, "
         f"fusion {cfg['fusion']}, topic tags in text: {cfg['augment_tags']}.",
     ]
     tuning = ROOT / "tuning_report.json"
+    if not tuning.exists():
+        lines += ["", "These weights were set by hand. They were not tuned."]
     if tuning.exists():
         lines += ["", "Ablation on the tuning sample (see `tuning_report.json`), NDCG@10:", ""]
         rows = json.loads(tuning.read_text())

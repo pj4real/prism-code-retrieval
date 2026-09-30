@@ -1,5 +1,5 @@
 {
-  "model": "gte-modernbert-base",
+  "model": "bge-small",
   "cache_path": ".cache/embeddings.sqlite",
   "batch_size": 32,
   "augment_tags": false,

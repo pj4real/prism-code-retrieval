@@ -117,7 +117,19 @@ tests/
 ## Results
 
 <!-- RESULTS:START -->
-Results will be filled in from `run_summary.json` after the evaluation run.
+Measured on the CoIR apps test split with `scripts/run_eval.py` (full corpus, all queries).
+
+| Metric | Value |
+| --- | --- |
+| NDCG@10 | 0.06698 |
+| MRR@10 | 0.057086 |
+| Documents / queries | 8765 / 3765 |
+| Recall@10 | 0.09934 |
+| Total wall clock | 359.3 s on 10 CPU cores |
+
+Model: `bge-small`. BM25 weight 0.25, topic weight 0.15, fusion zscore, topic tags in text: False.
+
+These weights were set by hand. They were not tuned.
 <!-- RESULTS:END -->
 
 ## Limits and honest notes
@@ -125,7 +137,7 @@ Results will be filled in from `run_summary.json` after the evaluation run.
 - The topic lexicon is a hand written list of keywords, not a trained classifier. It gives a small bonus and can be switched off (`topic_weight: 0`).
 - The JavaScript chunker is a brace matcher that handles strings, comments and template literals, not a full parser. Unusual syntax can produce a wrong chunk. Files with no detectable functions fall back to overlapping line windows.
 - Structural questions such as "which files call tool A before tool B" need a call graph. The Theme 1 guidelines we were given only ask for retrieval, so we did not build that.
-- The dense model is a third party pretrained model (default `Alibaba-NLP/gte-modernbert-base`). We did not train or fine tune anything.
+- The dense model is a third party pretrained model (`BAAI/bge-small-en-v1.5`, the `bge-small` preset in `configs/default.json`). We did not train or fine tune anything.
 - Per query latency in the demo includes embedding the query on CPU.
 
 ## AI usage

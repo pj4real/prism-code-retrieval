@@ -5,5 +5,4 @@ __pycache__/
 .pytest_cache/
 results/
 appsretrieval_results.json
-run_summary.json
-tuning_report.json
+CLAUDE.md

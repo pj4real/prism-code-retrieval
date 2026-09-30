@@ -181,10 +181,16 @@ class CachedEmbedder:
         self.misses += len(todo)
         if todo:
             todo_keys = list(todo)
-            vecs = self.embedder.embed([todo[k] for k in todo_keys], kind, batch_size)
-            new = {k: v for k, v in zip(todo_keys, vecs)}
-            self.cache.put_many(new)
-            found.update(new)
+            # Embed in slices and save each slice, so a stopped run keeps its progress.
+            step = max(batch_size * 8, 256)
+            for i in range(0, len(todo_keys), step):
+                part = todo_keys[i : i + step]
+                vecs = self.embedder.embed([todo[k] for k in part], kind, batch_size)
+                new = {k: v for k, v in zip(part, vecs)}
+                self.cache.put_many(new)
+                found.update(new)
+                if len(todo_keys) > step:
+                    print(f"  embedded {min(i + step, len(todo_keys))}/{len(todo_keys)} ({kind})", flush=True)
         return np.stack([found[k] for k in keys]).astype(np.float32)
 
 
