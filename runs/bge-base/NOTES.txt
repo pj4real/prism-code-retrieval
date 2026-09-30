@@ -1,0 +1,3 @@
+﻿No issues. Single uninterrupted run with default batch size (64), no restarts.
+Only warning in the log: Hugging Face Hub "unauthenticated requests" notice (harmless, no HF_TOKEN set).
+Note: free RAM was about 1.7 GB of 15.7 GB when the run started; the run completed without memory errors.

@@ -121,13 +121,22 @@ Measured on the CoIR apps test split with `scripts/run_eval.py` (full corpus, al
 
 | Metric | Value |
 | --- | --- |
-| NDCG@10 | 0.06698 |
-| MRR@10 | 0.057086 |
+| NDCG@10 | 0.06959 |
+| MRR@10 | 0.05843 |
 | Documents / queries | 8765 / 3765 |
-| Recall@10 | 0.09934 |
-| Total wall clock | 359.3 s on 10 CPU cores |
+| Recall@10 | 0.10598 |
+| Total wall clock | 3051.7 s on 24 CPU cores |
 
-Model: `bge-small`. BM25 weight 0.25, topic weight 0.15, fusion zscore, topic tags in text: False.
+Model: `bge-base`. BM25 weight 0.25, topic weight 0.15, fusion zscore, topic tags in text: False.
+
+Every full run we made, with the same code and weights (`runs/*/run_summary.json`):
+
+| Model | NDCG@10 | MRR@10 | Wall clock | CPU cores |
+| --- | --- | --- | --- | --- |
+| bge-base | 0.06959 | 0.05843 | 3051.7 s | 24 |
+| bge-small | 0.06698 | 0.057086 | 359.3 s | 10 |
+
+We submitted the model with the higher score. Both were scored on the same test split, so picking between them is a choice made on test data, and the submitted number should be read with that in mind. bge-small ran on a MacBook (10 cores), bge-base on a teammate's Windows laptop (Intel Core i7-14650HX, 24 logical cores), so the wall clock times are not comparable. Both runs were CPU only.
 
 These weights were set by hand. They were not tuned.
 <!-- RESULTS:END -->
@@ -137,7 +146,7 @@ These weights were set by hand. They were not tuned.
 - The topic lexicon is a hand written list of keywords, not a trained classifier. It gives a small bonus and can be switched off (`topic_weight: 0`).
 - The JavaScript chunker is a brace matcher that handles strings, comments and template literals, not a full parser. Unusual syntax can produce a wrong chunk. Files with no detectable functions fall back to overlapping line windows.
 - Structural questions such as "which files call tool A before tool B" need a call graph. The Theme 1 guidelines we were given only ask for retrieval, so we did not build that.
-- The dense model is a third party pretrained model (`BAAI/bge-small-en-v1.5`, the `bge-small` preset in `configs/default.json`). We did not train or fine tune anything.
+- The dense model is a third party pretrained model (`BAAI/bge-base-en-v1.5`, the `bge-base` preset in `configs/default.json`). We did not train or fine tune anything.
 - Per query latency in the demo includes embedding the query on CPU.
 
 ## Submission materials

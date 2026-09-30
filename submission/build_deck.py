@@ -24,9 +24,9 @@ TEAM = {
     "college": "Vellore Institute of Technology, Vellore",
     "members": [
         "Prakhar Joshi, jjoshiprakhar@gmail.com",
+        "Sudiksha Kathuria, kathuriasudiksha@gmail.com",
         "Navya Ghatta, navyaghatta@gmail.com",
         "Nihit Garg, nihitgarg2005@gmail.com",
-        "Sudiksha Kathuria, kathuriasudiksha@gmail.com",
     ],
     "github": "https://github.com/pj4real/prism-code-retrieval",
     "video": "https://drive.google.com/file/d/1FeSi1SZcfN0EnjjiQCgMNgergOchNoTL/view?usp=sharing",
@@ -275,7 +275,7 @@ def slide4(s):
     # first pass
     text_box(s, 7.55, 1.4, 2.6, 0.3, "FIRST PASS", size=11, color=PURPLE, bold=True)
     d = box(s, 7.55, 1.75, 2.6, 1.15, fill=PURPLE)
-    box_text(d, [[("Dense scorer", {"bold": True})], [("bge-small-en-v1.5", {"size": 13})],
+    box_text(d, [[("Dense scorer", {"bold": True})], [("bge-base-en-v1.5", {"size": 13})],
                  [("both query views", {"size": 13})]], size=15, color=WHITE)
     b = box(s, 7.55, 3.05, 2.6, 1.15, fill=PURPLE)
     box_text(b, [[("Keyword scorer", {"bold": True})], [("BM25 on code words", {"size": 13})],
@@ -365,7 +365,7 @@ def slide6(s):
     set_title(s, "Tools and tech stack")
     drop_body(s)
     groups = [
-        ("Retrieval", [("Model", "BAAI/bge-small-en-v1.5, pretrained, not fine tuned"),
+        ("Retrieval", [("Model", "BAAI/bge-base-en-v1.5, pretrained, not fine tuned"),
                        ("Dense", "sentence-transformers 6.1.0, transformers 5.17.0, PyTorch on CPU"),
                        ("Keyword", "BM25 written on scipy sparse matrices")]),
         ("Evaluation", [("Benchmark", "MTEB 2.21.9, task AppsRetrieval (CoIR apps)"),

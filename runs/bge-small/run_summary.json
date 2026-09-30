@@ -1,0 +1,28 @@
+{
+  "ndcg_at_10": 0.06698,
+  "mrr_at_10": 0.057086,
+  "recall_at_10": 0.09934,
+  "wall_clock_seconds": 359.3,
+  "index_seconds": 139.1,
+  "search_seconds_after_query_encoding": 209.6,
+  "docs": 8765,
+  "queries": 3765,
+  "cpu_count": 10,
+  "config": {
+    "model": "bge-small",
+    "max_seq_length": null,
+    "cache_path": ".cache/embeddings.sqlite",
+    "batch_size": 64,
+    "doc_max_chars": 1800,
+    "augment_tags": false,
+    "w_full": 0.6,
+    "w_stmt": 0.4,
+    "fusion": "zscore",
+    "bm25_weight": 0.25,
+    "topic_weight": 0.15,
+    "bm25_k1": 1.2,
+    "bm25_b": 0.75,
+    "rrf_k": 60,
+    "query_chunk": 128
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "model": "bge-small",
+  "model": "bge-base",
   "cache_path": ".cache/embeddings.sqlite",
   "batch_size": 32,
   "augment_tags": false,

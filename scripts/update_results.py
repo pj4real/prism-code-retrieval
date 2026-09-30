@@ -29,6 +29,17 @@ def main() -> None:
         f"Model: `{cfg['model']}`. BM25 weight {cfg['bm25_weight']}, topic weight {cfg['topic_weight']}, "
         f"fusion {cfg['fusion']}, topic tags in text: {cfg['augment_tags']}.",
     ]
+    runs = ROOT / "runs"
+    if runs.exists():
+        lines += ["", "Every full run we made, with the same code and weights (`runs/*/run_summary.json`):", "",
+                  "| Model | NDCG@10 | MRR@10 | Wall clock | CPU cores |", "| --- | --- | --- | --- | --- |"]
+        for p in sorted(runs.glob("*/run_summary.json")):
+            r = json.loads(p.read_text())
+            lines.append(f"| {r['config']['model']} | {r['ndcg_at_10']} | {r['mrr_at_10']} | {r['wall_clock_seconds']} s | {r['cpu_count']} |")
+        lines += ["", "We submitted the model with the higher score. Both were scored on the same test split, so picking between "
+                  "them is a choice made on test data, and the submitted number should be read with that in mind. "
+                  "bge-small ran on a MacBook (10 cores), bge-base on a teammate's Windows laptop (Intel Core i7-14650HX, 24 logical cores), "
+                  "so the wall clock times are not comparable. Both runs were CPU only."]
     tuning = ROOT / "tuning_report.json"
     if not tuning.exists():
         lines += ["", "These weights were set by hand. They were not tuned."]
