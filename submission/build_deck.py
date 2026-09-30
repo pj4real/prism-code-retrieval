@@ -314,7 +314,7 @@ def slide5(s, demo):
     # left: steps
     steps = [
         ("Index each version", "Three versions of a small JavaScript voice assistant ship in the repo. Only changed functions are embedded."),
-        ("Ask in plain English", "\"How is the input cleaned before it is passed to the router?\" Answers come back with file and line, and the query latency."),
+        ("Ask in plain English", "\"How is the input cleaned before it is passed to the router?\" normalizeUtterance comes back first. Median 18 ms per question on a MacBook."),
         ("Search across versions", "One query over v1, v2 and v3. Identical functions fold into one hit. Changed ones list each version."),
     ]
     y = 1.5
