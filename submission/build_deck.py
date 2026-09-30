@@ -29,7 +29,7 @@ TEAM = {
         "Nihit Garg, nihitgarg2005@gmail.com",
     ],
     "github": "https://github.com/pj4real/prism-code-retrieval",
-    "video": "https://drive.google.com/file/d/1FeSi1SZcfN0EnjjiQCgMNgergOchNoTL/view?usp=sharing",
+    "video": "https://drive.google.com/file/d/1JIUAlqLvp3eXkVWTokDIGYVLuQ3Ivu-s/view?usp=sharing",
 }
 
 PURPLE = RGBColor(0x70, 0x4E, 0xA6)

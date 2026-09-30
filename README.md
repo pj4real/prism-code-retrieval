@@ -152,7 +152,7 @@ These weights were set by hand. They were not tuned.
 ## Submission materials
 
 - Presentation: [submission/VITV_Procrastinators_Submission.pptx](submission/VITV_Procrastinators_Submission.pptx)
-- Demo video: https://drive.google.com/file/d/1FeSi1SZcfN0EnjjiQCgMNgergOchNoTL/view?usp=sharing
+- Demo video: https://drive.google.com/file/d/1JIUAlqLvp3eXkVWTokDIGYVLuQ3Ivu-s/view?usp=sharing
 - AI disclosure: [AI_DISCLOSURE.md](AI_DISCLOSURE.md) and [submission/VITV_Procrastinators_AI_Disclosure.docx](submission/VITV_Procrastinators_AI_Disclosure.docx)
 - Benchmark output: `appsretrieval_results.json`, attached to the GitHub release `PRISM_GENAI_HACKATHON_Y2026`. The scores above come from `run_summary.json` in this repo.
 
