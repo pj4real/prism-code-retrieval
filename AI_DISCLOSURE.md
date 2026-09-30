@@ -1,6 +1,6 @@
 # AI usage disclosure
 
-Most of this repository was written by an AI assistant (Claude (Anthropic), used through the Claude desktop app (Cowork)) at the direction of the team. The team chose the theme and scope and runs the benchmark on its own machine. The embedding model is a third party pretrained model and was not trained by us.
+Most of this repository was written by an AI assistant (Claude (Anthropic), used through the Claude desktop app (Cowork and Claude Code)) at the direction of the team. The team chose the theme and scope. The benchmark ran on the team's own laptop, launched through Claude Code at the team's direction. The embedding model is a third party pretrained model and was not trained by us.
 
 | Purpose | Used | Notes |
 | --- | --- | --- |
@@ -8,9 +8,9 @@ Most of this repository was written by an AI assistant (Claude (Anthropic), used
 | Code generation or assistance | Yes | All source code, tests, Dockerfile and scripts were written by the AI at the team's direction. |
 | UI/UX design | No | There is no UI. The demo is a command line tool. |
 | Content creation | Yes | README, presentation text and this disclosure were drafted by the AI. |
-| Data analysis | No | No analysis was done by the AI. Benchmark numbers come from running the code on the team's own machine. |
+| Data analysis | Yes | The AI launched the benchmark on the team's own laptop at the team's direction and copied the scores from run_summary.json. It did not change or estimate any score. |
 | Testing and debugging | Yes | The AI wrote the tests and fixed bugs it found while running them. |
-| Other | Yes | The team picked the theme and ran the benchmark themselves. |
+| Other | Yes | The team picked the theme, chose the model and approved each benchmark run. |
 
 ## Feature origin
 
