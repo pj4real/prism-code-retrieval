@@ -20,16 +20,16 @@ from pptx.oxml.ns import qn
 from pptx.util import Emu, Inches, Pt
 
 TEAM = {
-    "team_name": "[Team name]",
+    "team_name": "Procrastinators",
     "college": "Vellore Institute of Technology, Vellore",
     "members": [
         "Prakhar Joshi, jjoshiprakhar@gmail.com",
-        "[Member 2 name, email]",
-        "[Member 3 name, email]",
-        "[Member 4 name, email]",
+        "Navya Ghatta, navyaghatta@gmail.com",
+        "Nihit Garg, nihitgarg2005@gmail.com",
+        "Sudiksha Kathuria, kathuriasudiksha@gmail.com",
     ],
     "github": "https://github.com/pj4real/prism-code-retrieval",
-    "video": "[Demo video link]",
+    "video": "https://drive.google.com/file/d/1FeSi1SZcfN0EnjjiQCgMNgergOchNoTL/view?usp=sharing",
 }
 
 PURPLE = RGBColor(0x70, 0x4E, 0xA6)
